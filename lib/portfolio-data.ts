@@ -23,8 +23,8 @@ export const experiences = [
     startDate: "2025-04",
     endDate: null,
     description: {
-      en: "Developed REST APIs using .NET 8 following Clean Architecture principles. Worked in Scrum teams using Azure DevOps for CI/CD pipelines, backlog management and project tracking.",
-      es: "Desarrollé APIs REST usando .NET 8 siguiendo principios de Clean Architecture. Trabajé en equipos Scrum utilizando Azure DevOps para CI/CD, gestión de backlog y seguimiento del proyecto.",
+      en: "Developed REST APIs using .NET 8 following Clean Architecture principles with microservices architectural style. Worked in Scrum teams using Azure DevOps for CI/CD pipelines, backlog management and project tracking.",
+      es: "Desarrollé APIs REST usando .NET 8 siguiendo principios de Clean Architecture con estilo arquitectónico de microservicios. Trabajé en equipos Scrum utilizando Azure DevOps para CI/CD, gestión de backlog y seguimiento del proyecto.",
     },
     technologies: [
       ".NET 8",
@@ -152,6 +152,7 @@ export const projects = [
     technologies: ["Next.js", "TypeScript", "TailwindCSS", "Resend"],
     image: "/portafolio.png",
     demoUrl: "https://jdtb-portfolio-v2-mu.vercel.app/",
+    disableDemoButton: true,
     repoUrl: "https://github.com/juandavidtb02/jdtb-portfolio-v2",
   },
 ];
@@ -164,7 +165,7 @@ export const education = [
       en: "Systems Engineer",
       es: "Ingeniero de Sistemas",
     },
-    startDate: "2018",
+    startDate: "2019",
     endDate: "2024",
   },
   {
@@ -174,8 +175,8 @@ export const education = [
       en: "Academic Bachelor with emphasis in Pedagogy",
       es: "Bachiller Académico con énfasis en Pedagogía",
     },
-    startDate: "2012",
-    endDate: "2017",
+    startDate: "2013",
+    endDate: "2018",
   },
 ];
 

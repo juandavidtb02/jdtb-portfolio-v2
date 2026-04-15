@@ -109,7 +109,7 @@ export function ProjectsSection() {
 
                   {/* Action Buttons — pushed to bottom */}
                   <div className="flex gap-3 mt-auto">
-                    {project.demoUrl && project.demoUrl !== "#" ? (
+                    {project.demoUrl && project.demoUrl !== "#" && !("disableDemoButton" in project && project.disableDemoButton) ? (
                       <a
                         href={project.demoUrl}
                         target="_blank"
@@ -119,6 +119,11 @@ export function ProjectsSection() {
                         <ExternalLink className="w-4 h-4" />
                         {t("projects.viewDemo")}
                       </a>
+                    ) : project.demoUrl && project.demoUrl !== "#" && "disableDemoButton" in project && project.disableDemoButton ? (
+                      <span className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2 bg-secondary/30 text-muted-foreground/50 border border-border/30 rounded text-sm font-medium cursor-not-allowed opacity-50">
+                        <ExternalLink className="w-4 h-4" />
+                        {t("projects.viewDemo")}
+                      </span>
                     ) : (
                       <span className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2 bg-secondary/30 text-muted-foreground/50 border border-border/30 rounded text-sm font-medium cursor-not-allowed">
                         <ExternalLink className="w-4 h-4" />

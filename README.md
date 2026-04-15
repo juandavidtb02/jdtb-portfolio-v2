@@ -148,7 +148,7 @@ This project is licensed under the **MIT License**.
 | ------------ | ----------------------------------------------------------------------------------------------------------------------- |
 | 🐙 GitHub    | [github.com/juandavidtb02](https://github.com/juandavidtb02)                                                            |
 | 💼 LinkedIn  | [linkedin.com/in/juan-david-torres-barreto-62a786255](https://www.linkedin.com/in/juan-david-torres-barreto-62a786255/) |
-| 🌐 Portfolio | [jdtb-portfolio-v2-mu.vercel.app](https://jdtb-portfolio-v2-mu.vercel.app/) |
+| 🌐 Portfolio | [jdtb-portfolio.vercel.app](https://jdtb-portfolio-v2-mu.vercel.app/)                                                   |
 
 ---
 

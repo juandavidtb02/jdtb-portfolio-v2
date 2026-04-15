@@ -16,75 +16,48 @@ interface SkillBarProps {
 function SkillBar({ name, level, delay, isInView, color }: SkillBarProps) {
   const colorClasses = {
     cyan: {
-      bar: "bg-gradient-to-r from-neon-cyan to-neon-blue",
-      glow: "shadow-[0_0_10px_rgba(0,255,255,0.5)]",
+      filled: "bg-neon-cyan",
+      empty: "bg-secondary/30",
       text: "text-neon-cyan",
     },
     magenta: {
-      bar: "bg-gradient-to-r from-neon-magenta to-pink-500",
-      glow: "shadow-[0_0_10px_rgba(255,0,255,0.5)]",
+      filled: "bg-neon-magenta",
+      empty: "bg-secondary/30",
       text: "text-neon-magenta",
     },
     lime: {
-      bar: "bg-gradient-to-r from-neon-lime to-emerald-500",
-      glow: "shadow-[0_0_10px_rgba(0,255,128,0.5)]",
+      filled: "bg-neon-lime",
+      empty: "bg-secondary/30",
       text: "text-neon-lime",
     },
   }
 
   const classes = colorClasses[color]
+  const totalBlocks = 20
+  const filledBlocks = Math.round((level / 100) * totalBlocks)
 
   return (
     <div className="group">
-      <div className="flex justify-between items-center mb-2">
-        <span className="text-sm font-medium text-foreground group-hover:text-neon-cyan transition-colors">
+      <div className="flex justify-between items-center mb-1.5">
+        <span className="text-sm font-medium text-foreground">
           {name}
         </span>
         <span className={`font-[var(--font-pixel)] text-xs ${classes.text}`}>
           LV.{level}
         </span>
       </div>
-      <div className="relative h-3 bg-secondary/50 rounded-full overflow-hidden border border-border/50">
-        {/* Background grid pattern */}
-        <div className="absolute inset-0 opacity-20">
-          {Array.from({ length: 10 }).map((_, i) => (
-            <div
-              key={i}
-              className="absolute top-0 bottom-0 w-px bg-foreground/20"
-              style={{ left: `${(i + 1) * 10}%` }}
-            />
-          ))}
-        </div>
-        
-        {/* Progress bar */}
-        <div
-          className={`h-full ${classes.bar} ${classes.glow} rounded-full transition-all duration-1000 ease-out`}
-          style={{
-            width: isInView ? `${level}%` : "0%",
-            transitionDelay: `${delay}ms`,
-          }}
-        >
-          {/* Animated shine effect */}
-          <div className="absolute inset-0 overflow-hidden rounded-full">
-            <div 
-              className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full animate-[shimmer_2s_infinite]"
-              style={{ animationDelay: `${delay}ms` }}
-            />
-          </div>
-        </div>
-
-        {/* Power indicator dots */}
-        <div className="absolute right-2 top-1/2 -translate-y-1/2 flex gap-0.5">
-          {Array.from({ length: 3 }).map((_, i) => (
-            <div
-              key={i}
-              className={`w-1 h-1 rounded-full transition-all duration-500 ${
-                isInView && level > 80 - i * 10 ? "bg-white" : "bg-white/20"
-              }`}
-              style={{ transitionDelay: `${delay + 500 + i * 100}ms` }}
-            />
-          ))}
-        </div>
+      <div className="flex gap-0.5">
+        {Array.from({ length: totalBlocks }).map((_, i) => (
+          <div
+            key={i}
+            className={`h-4 flex-1 transition-all duration-300 ${
+              i < filledBlocks && isInView ? classes.filled : classes.empty
+            }`}
+            style={{
+              transitionDelay: `${delay + i * 30}ms`,
+            }}
+          />
+        ))}
       </div>
     </div>
   )
@@ -145,7 +118,7 @@ export function SkillsSection() {
               style={{ transitionDelay: `${catIndex * 150}ms` }}
             >
               {/* Category Card */}
-              <div className="h-full bg-card/50 backdrop-blur-sm rounded-lg border border-border hover:border-neon-cyan/30 transition-all p-6">
+              <div className="h-full bg-card/50 backdrop-blur-sm rounded-lg border border-border hover:border-neon-cyan/30 transition-all p-6 flex flex-col">
                 {/* HUD corners */}
                 <div className="absolute top-0 left-0 w-6 h-6 border-l-2 border-t-2 border-neon-cyan/30 rounded-tl-lg" />
                 <div className="absolute top-0 right-0 w-6 h-6 border-r-2 border-t-2 border-neon-cyan/30 rounded-tr-lg" />
@@ -161,7 +134,7 @@ export function SkillsSection() {
                 </div>
 
                 {/* Skills List */}
-                <div className="space-y-4">
+                <div className="space-y-4 flex-1">
                   {category.skills.map((skill, skillIndex) => (
                     <SkillBar
                       key={skill.name}
@@ -186,13 +159,6 @@ export function SkillsSection() {
           ))}
         </div>
       </div>
-
-      <style jsx>{`
-        @keyframes shimmer {
-          0% { transform: translateX(-100%); }
-          100% { transform: translateX(200%); }
-        }
-      `}</style>
     </section>
   )
 }
