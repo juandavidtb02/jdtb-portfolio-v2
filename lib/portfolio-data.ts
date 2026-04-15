@@ -150,8 +150,8 @@ export const projects = [
       es: "Portafolio personal con diseño retro arcade, sistema de logros estilo videojuegos, soporte bilingüe, fondo animado y formulario de contacto con integración de email.",
     },
     technologies: ["Next.js", "TypeScript", "TailwindCSS", "Resend"],
-    image: null,
-    demoUrl: "#",
+    image: "/portafolio.png",
+    demoUrl: "https://jdtb-portfolio-v2-mu.vercel.app/",
     repoUrl: "https://github.com/juandavidtb02/jdtb-portfolio-v2",
   },
 ];
