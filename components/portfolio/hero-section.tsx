@@ -79,9 +79,12 @@ export function HeroSection() {
               style={{ animationDelay: "0.5s" }}
             >
               <a
-                href="https://drive.google.com/uc?export=download&id=1XPFCdcJENv9lWzuyJcWAd__w2FTy4EtP"
-                target="_blank"
-                rel="noopener noreferrer"
+                href={
+                  language === "es"
+                    ? "https://drive.google.com/uc?export=download&id=13GnWQCLRlMiuJW95J92NPYUVwQUQ9Hno"
+                    : "https://drive.google.com/uc?export=download&id=114j0xd_e-N2YR06XloLibSLqG1DWyOry"
+                }
+                download
                 onClick={() => unlockAchievement("download_cv")}
                 className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-neon-cyan text-background font-semibold rounded hover:neon-glow-cyan transition-all hover:scale-105"
               >

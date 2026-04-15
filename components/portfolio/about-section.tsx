@@ -2,16 +2,21 @@
 
 import { useLanguage } from "@/lib/language-context";
 import { useInView } from "@/hooks/use-in-view";
-import { User, Briefcase, Code2 } from "lucide-react";
+import { User, Briefcase, Code2, Languages } from "lucide-react";
 
 export function AboutSection() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const { ref, isInView } = useInView({ threshold: 0.2 });
 
   const stats = [
     { icon: Briefcase, value: "3+", label: t("about.stats.experience") },
     { icon: Code2, value: "4+", label: t("about.stats.projects") },
     { icon: User, value: "14+", label: t("about.stats.technologies") },
+  ];
+
+  const languages = [
+    { name: language === "en" ? "Spanish" : "Español", level: language === "en" ? "Native" : "Nativo" },
+    { name: language === "en" ? "English" : "Inglés", level: "B1" },
   ];
 
   return (
@@ -64,7 +69,7 @@ export function AboutSection() {
                 </p>
 
                 {/* Stats */}
-                <div className="grid grid-cols-3 gap-4">
+                <div className="grid grid-cols-3 gap-4 mb-4">
                   {stats.map((stat, index) => (
                     <div
                       key={stat.label}
@@ -80,6 +85,24 @@ export function AboutSection() {
                       </p>
                     </div>
                   ))}
+                </div>
+
+                {/* Languages */}
+                <div className="border border-border/50 rounded px-4 py-3 bg-secondary/20">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <Languages className="w-4 h-4 text-neon-magenta" />
+                      <span className="text-sm font-semibold text-neon-magenta">{t("about.stats.languages")}:</span>
+                    </div>
+                    <div className="flex items-center gap-4 text-sm">
+                      {languages.map((lang, index) => (
+                        <span key={lang.name} className="text-foreground">
+                          {lang.name} <span className="text-muted-foreground">({lang.level})</span>
+                          {index < languages.length - 1 && <span className="text-muted-foreground ml-4">•</span>}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

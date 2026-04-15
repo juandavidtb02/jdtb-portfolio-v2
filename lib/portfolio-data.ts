@@ -12,13 +12,36 @@ export const personalInfo = {
   whatsapp: "https://wa.me/573142484885",
 };
 
+export const languages = [
+  {
+    name: {
+      en: "Spanish",
+      es: "Español",
+    },
+    level: {
+      en: "Native",
+      es: "Nativo",
+    },
+  },
+  {
+    name: {
+      en: "English",
+      es: "Inglés",
+    },
+    level: {
+      en: "B1 Intermediate",
+      es: "B1 Intermedio",
+    },
+  },
+];
+
 export const experiences = [
   {
     id: 1,
     company: "ENTERNOVA SAS",
     position: {
-      en: "Backend Developer",
-      es: "Desarrollador Backend",
+      en: ".NET Developer",
+      es: "Desarrollador .NET",
     },
     startDate: "2025-04",
     endDate: null,
@@ -30,6 +53,7 @@ export const experiences = [
       ".NET 8",
       "C#",
       "REST API",
+      "Microservicios",
       "Azure DevOps",
       "Clean Architecture",
       "Scrum",

@@ -44,6 +44,7 @@ const translations = {
     "about.stats.experience": "Years XP",
     "about.stats.projects": "Projects",
     "about.stats.technologies": "Tech Stack",
+    "about.stats.languages": "Languages",
 
     // Experience
     "experience.title": "Experience",
@@ -124,6 +125,7 @@ const translations = {
     "about.stats.experience": "Años XP",
     "about.stats.projects": "Proyectos",
     "about.stats.technologies": "Tech Stack",
+    "about.stats.languages": "Idiomas",
 
     // Experience
     "experience.title": "Experiencia",
