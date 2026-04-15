@@ -28,7 +28,7 @@ export function ProjectsSection() {
         {/* Projects Grid */}
         <div
           ref={ref}
-          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
+          className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8"
         >
           {projects.map((project, index) => (
             <div
@@ -45,30 +45,37 @@ export function ProjectsSection() {
                 {/* Image/Preview Area */}
                 <div className="relative h-48 bg-gradient-to-br from-neon-cyan/10 via-background to-neon-magenta/10 overflow-hidden">
                   {/* Scanlines effect */}
-                  <div className="absolute inset-0 scanlines pointer-events-none" />
+                  <div className="absolute inset-0 scanlines pointer-events-none z-10" />
 
-                  {/* Project Icon Placeholder */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="relative">
-                      <div className="w-20 h-20 rounded-lg bg-secondary/50 border border-border flex items-center justify-center group-hover:scale-110 transition-transform">
-                        <Folder className="w-10 h-10 text-neon-cyan" />
+                  {/* Project thumbnail or icon fallback */}
+                  {"image" in project && project.image ? (
+                    <img
+                      src={project.image as string}
+                      alt={project.name}
+                      className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+                    />
+                  ) : (
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="relative">
+                        <div className="w-20 h-20 rounded-lg bg-secondary/50 border border-border flex items-center justify-center group-hover:scale-110 transition-transform">
+                          <Folder className="w-10 h-10 text-neon-cyan" />
+                        </div>
+                        <div className="absolute inset-0 rounded-lg bg-neon-cyan/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
                       </div>
-                      {/* Glow effect on hover */}
-                      <div className="absolute inset-0 rounded-lg bg-neon-cyan/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
                     </div>
-                  </div>
+                  )}
 
                   {/* HUD overlay */}
-                  <div className="absolute top-2 left-2 flex items-center gap-2">
-                    <div className={`w-2 h-2 rounded-full ${project.demoUrl && project.demoUrl !== "#" ? "bg-neon-lime animate-pulse" : "bg-red-500"}`} />
-                    <span className={`font-[var(--font-pixel)] text-[8px] ${project.demoUrl && project.demoUrl !== "#" ? "text-neon-lime" : "text-red-400"}`}>
+                  <div className="absolute top-2 left-2 flex items-center gap-1.5 z-20 px-2 py-1 rounded bg-background/80 backdrop-blur-sm border border-border/60">
+                    <div className={`w-2 h-2 rounded-full flex-shrink-0 ${project.demoUrl && project.demoUrl !== "#" ? "bg-neon-lime animate-pulse" : "bg-red-500"}`} />
+                    <span className={`font-[var(--font-pixel)] text-[8px] leading-none ${project.demoUrl && project.demoUrl !== "#" ? "text-neon-lime" : "text-red-400"}`}>
                       {project.demoUrl && project.demoUrl !== "#" ? "ONLINE" : "OFFLINE"}
                     </span>
                   </div>
 
                   {/* Project number */}
-                  <div className="absolute top-2 right-2">
-                    <span className="font-[var(--font-pixel)] text-xs text-muted-foreground">
+                  <div className="absolute top-2 right-2 z-20 px-1.5 py-0.5 rounded bg-background/80 backdrop-blur-sm border border-border/60">
+                    <span className="font-[var(--font-pixel)] text-[9px] text-muted-foreground">
                       #{String(project.id).padStart(2, "0")}
                     </span>
                   </div>

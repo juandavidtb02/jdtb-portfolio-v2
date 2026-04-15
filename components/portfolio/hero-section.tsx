@@ -79,8 +79,9 @@ export function HeroSection() {
               style={{ animationDelay: "0.5s" }}
             >
               <a
-                href="/cv.pdf"
-                download
+                href="https://drive.google.com/uc?export=download&id=1XPFCdcJENv9lWzuyJcWAd__w2FTy4EtP"
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => unlockAchievement("download_cv")}
                 className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-neon-cyan text-background font-semibold rounded hover:neon-glow-cyan transition-all hover:scale-105"
               >
@@ -100,20 +101,6 @@ export function HeroSection() {
           {/* Photo Frame */}
           <div className="order-1 lg:order-2 flex justify-center">
             <div className="relative">
-              {/* Animated radar scan effect */}
-              <div className="absolute inset-0 rounded-full">
-                <div className="absolute inset-0 rounded-full border-2 border-neon-cyan/20" />
-                <div className="absolute inset-0 rounded-full overflow-hidden">
-                  <div
-                    className="absolute inset-0 bg-gradient-conic from-neon-cyan/30 via-transparent to-transparent animate-radar"
-                    style={{
-                      background:
-                        "conic-gradient(from 0deg, transparent 0deg, rgba(0, 255, 255, 0.3) 30deg, transparent 60deg)",
-                    }}
-                  />
-                </div>
-              </div>
-
               {/* HUD Frame */}
               <div className="relative w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80">
                 {/* Corner accents */}
@@ -123,22 +110,13 @@ export function HeroSection() {
                 <div className="absolute -bottom-2 -right-2 w-8 h-8 border-r-2 border-b-2 border-neon-cyan animate-border-glow" />
 
                 {/* Photo container */}
-                <div className="w-full h-full rounded-lg border border-neon-cyan/30 overflow-hidden bg-secondary/50 flex items-center justify-center">
-                  {/* Placeholder for photo - replace with actual photo */}
-                  <div className="w-full h-full bg-gradient-to-br from-neon-cyan/10 via-background to-neon-magenta/10 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-24 h-24 mx-auto mb-4 rounded-full bg-neon-cyan/20 flex items-center justify-center">
-                        <span className="font-[var(--font-pixel)] text-3xl text-neon-cyan">
-                          {personalInfo.name
-                            .split(" ")
-                            .map((n) => n[0])
-                            .join("")}
-                        </span>
-                      </div>
-                      <p className="text-xs text-muted-foreground font-[var(--font-pixel)]">
-                        PLAYER 1
-                      </p>
-                    </div>
+                <div className="w-full h-full rounded-lg border border-neon-cyan/30 overflow-hidden bg-gradient-to-br from-neon-cyan/10 via-background to-neon-magenta/10 flex items-center justify-center">
+                  <div className="relative w-40 h-40 sm:w-48 sm:h-48 lg:w-52 lg:h-52 rounded-full overflow-hidden border-2 border-neon-cyan/50 shadow-[0_0_20px_rgba(0,255,255,0.2)]">
+                    <img
+                      src="/profilepic.jpg"
+                      alt={personalInfo.name}
+                      className="w-full h-full object-cover object-top grayscale"
+                    />
                   </div>
                 </div>
 

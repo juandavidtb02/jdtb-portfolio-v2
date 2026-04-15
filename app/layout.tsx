@@ -21,7 +21,7 @@ const pressStart = Press_Start_2P({
 });
 
 export const metadata: Metadata = {
-  title: "Alex Developer | Software Developer Portfolio",
+  title: "JDTB Portafolio",
   description:
     "Creative software developer specializing in modern web applications. View my projects, skills, and experience.",
   keywords: [
@@ -32,6 +32,9 @@ export const metadata: Metadata = {
     "nextjs",
     "typescript",
   ],
+  icons: {
+    icon: "/code-svgrepo-com.svg",
+  },
 };
 
 export const viewport: Viewport = {

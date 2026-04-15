@@ -30,18 +30,6 @@ A modern interactive developer portfolio featuring gamified achievements, dynami
 
 ---
 
-## 📸 Screenshots
-
-> Add screenshots of your portfolio here.
-
-```
-![Hero Section](./screenshots/hero.png)
-![Projects Section](./screenshots/projects.png)
-![Achievements](./screenshots/achievements.png)
-```
-
----
-
 ## ⚙️ Installation
 
 ### Prerequisites

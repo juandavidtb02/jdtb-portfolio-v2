@@ -114,6 +114,7 @@ export const projects = [
       es: "Plataforma web que conecta agricultores con consumidores, permitiendo la publicación de anuncios y venta de productos agrícolas. Sistema completo con gestión de usuarios, productos y transacciones.",
     },
     technologies: ["Django", "React", "PostgreSQL", "TailwindCSS"],
+    image: "/mercaorinoquia.png",
     demoUrl: "https://mercaorinoquia.netlify.app/",
     repoUrl: "https://github.com/DanielAlferez/Mercaorinoquia-Backend",
   },
@@ -125,6 +126,7 @@ export const projects = [
       es: "Tienda en línea especializada en productos dentales con diseño responsive. Incluye carrito de compras, gestión de inventario y sistema de pagos integrado.",
     },
     technologies: ["Django", "React", "MySQL", "Bootstrap"],
+    image: "/dentistore.png",
     demoUrl: "https://dentistore.netlify.app/",
     repoUrl: "https://github.com/juandavidtb02/Backend-dentistore",
   },
@@ -136,8 +138,21 @@ export const projects = [
       es: "Aplicación web monolítica desarrollada en PHP con PostgreSQL para la gestión de información del Tour de Francia. Incluye páginas dinámicas construidas con HTML, CSS y JavaScript vanilla.",
     },
     technologies: ["PHP", "PostgreSQL", "HTML", "CSS", "JavaScript"],
+    image: "/tourfrancia.jpg",
     demoUrl: "#",
     repoUrl: "https://github.com/juandavidtb02/tour-francia-php",
+  },
+  {
+    id: 4,
+    name: "Interactive Portfolio",
+    description: {
+      en: "Personal developer portfolio with retro arcade design, gamified achievement system, bilingual support, animated background, and contact form with email integration.",
+      es: "Portafolio personal con diseño retro arcade, sistema de logros estilo videojuegos, soporte bilingüe, fondo animado y formulario de contacto con integración de email.",
+    },
+    technologies: ["Next.js", "TypeScript", "TailwindCSS", "Resend"],
+    image: null,
+    demoUrl: "#",
+    repoUrl: "https://github.com/juandavidtb02/jdtb-portfolio-v2",
   },
 ];
 
