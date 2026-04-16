@@ -29,6 +29,14 @@ export function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const scrollToSection = (href: string) => {
+    const sectionId = href.replace("#", "");
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -40,24 +48,24 @@ export function Header() {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <a
-            href="#home"
+          <button
+            onClick={() => scrollToSection("#home")}
             className="font-[var(--font-pixel)] text-xs sm:text-sm text-neon-cyan hover:text-glow-cyan transition-all"
           >
             {"<DEV/>"}
-          </a>
+          </button>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-1">
             {navItems.map((item) => (
-              <a
+              <button
                 key={item.key}
-                href={item.href}
+                onClick={() => scrollToSection(item.href)}
                 className="px-3 py-2 text-sm text-muted-foreground hover:text-neon-cyan transition-colors relative group"
               >
                 {t(item.key)}
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-neon-cyan group-hover:w-full transition-all duration-300" />
-              </a>
+              </button>
             ))}
           </div>
 
@@ -91,14 +99,16 @@ export function Header() {
           <div className="md:hidden py-4 border-t border-neon-cyan/20 animate-fade-in-up">
             <div className="flex flex-col gap-2">
               {navItems.map((item) => (
-                <a
+                <button
                   key={item.key}
-                  href={item.href}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="px-4 py-3 text-muted-foreground hover:text-neon-cyan hover:bg-neon-cyan/5 rounded transition-all"
+                  onClick={() => {
+                    scrollToSection(item.href);
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className="px-4 py-3 text-left text-muted-foreground hover:text-neon-cyan hover:bg-neon-cyan/5 rounded transition-all"
                 >
                   {t(item.key)}
-                </a>
+                </button>
               ))}
             </div>
           </div>
