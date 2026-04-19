@@ -66,7 +66,7 @@ export const experiences = [
       en: "Web Developer",
       es: "Desarrollador Web",
     },
-    startDate: "2023-12",
+    startDate: "2022-01",
     endDate: "2025-01",
     description: {
       en: "Worked as a frontend developer using ReactJS, Next.js and TypeScript to build optimized interfaces integrated with RESTful APIs.",
